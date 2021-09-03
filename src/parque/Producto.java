@@ -2,8 +2,8 @@ package parque;
 
 public abstract class Producto {
 	
-	private double costoDeVisita;
-	private double tiempoNecesario;
-	private int CupoPersonasPorDia;
+	protected double costoDeVisita;
+	protected double tiempoNecesario;
+	protected int CupoPersonasPorDia;
 
 }
