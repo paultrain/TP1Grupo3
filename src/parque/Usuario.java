@@ -6,6 +6,7 @@ public class Usuario {
 	private String nombre;
 	private int presupuesto;
 	private double tiempoDisponible;
+	//private List<Itinerario> = new ArrayList<Itinerario>();
 	
 	public Usuario() {
 	}
