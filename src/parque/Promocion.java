@@ -13,7 +13,7 @@ public abstract class Promocion extends Producto {
 
 	public Promocion(TipoDeAtraccion tipo, String nombre, double costoDeVisita, double tiempoNecesario,
 			int cupoPersonasPorDia, List<Atraccion> atraccionesIncluidas) {
-		super(tipo, nombre, costoDeVisita, tiempoNecesario, cupoPersonasPorDia);
+		super(nombre, costoDeVisita, tiempoNecesario, cupoPersonasPorDia,tipo);
 		atraccionesIncluidas = new LinkedList<Atraccion>();
 	}
 

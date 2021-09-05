@@ -1,18 +1,16 @@
 package parque;
 
 public abstract class Producto {
-	
-	protected TipoDeAtraccion tipo;
 	protected String nombre;
 	protected double costoDeVisita;
 	protected double tiempoNecesario;
 	protected int CupoPersonasPorDia;
-	
+	protected TipoDeAtraccion tipo;
 	public Producto() {
 	}
 	
-	public Producto(TipoDeAtraccion tipo, String nombre, double costoDeVisita, double tiempoNecesario,
-			int cupoPersonasPorDia) {
+	public Producto(String nombre, double costoDeVisita, double tiempoNecesario,
+			int cupoPersonasPorDia,TipoDeAtraccion tipo) {
 		this.tipo = tipo;
 		this.nombre = nombre;
 		this.costoDeVisita = costoDeVisita;
@@ -26,9 +24,10 @@ public abstract class Producto {
 
 	@Override
 	public String toString() {
-		return "Producto [tipo=" + tipo + ", nombre=" + nombre + ", costo=" + costoDeVisita
-				+ ", tiempo Necesario=" + tiempoNecesario + ", Cupo de Personas Por Dia=" + CupoPersonasPorDia + "]";
+		return "Producto [nombre=" + nombre + ", costoDeVisita=" + costoDeVisita + ", tiempoNecesario="
+				+ tiempoNecesario + ", CupoPersonasPorDia=" + CupoPersonasPorDia + ", tipo=" + tipo + "]";
 	}
+
 	
 	
 	
