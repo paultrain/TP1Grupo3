@@ -1,7 +1,15 @@
 package parque;
 
-public class Atraccion {
+public class Atraccion extends Producto{
 
-	private String nombre;
-	private TipoDeAtraccion tipo;
+	public Atraccion() {
+		super();
+	}
+
+	public Atraccion(TipoDeAtraccion tipo, String nombre, double costoDeVisita, double tiempoNecesario,
+			int cupoPersonasPorDia) {
+		super(tipo, nombre, costoDeVisita, tiempoNecesario, cupoPersonasPorDia);
+		}
+
+	
 }
