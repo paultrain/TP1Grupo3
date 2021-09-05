@@ -1,7 +1,5 @@
 package parque;
 
-public class Atraccion {
+public class Atraccion extends Producto{
 
-	private String nombre;
-	private TipoDeAtraccion tipo;
 }
