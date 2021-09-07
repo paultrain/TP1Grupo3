@@ -15,19 +15,33 @@ public class Usuario {
 
 	// constructor de usuario
 	public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo) {
-		validaNumeros(dinero);
-		validaNumeros(tiempo);
+		if (validaNumeros(dinero)) {
+			this.dinero = dinero;
+		} else {
+			this.dinero = 0;
+		}
+		if (validaNumeros(tiempo)) {
+			this.tiempoDisponible = tiempo;
+		} else {
+			this.tiempoDisponible = 0;
+		}
+
 		this.nombre = nombre;
+
 		this.preferida = preferencia;
-		this.dinero = dinero;
-		this.tiempoDisponible = tiempo;
+
 	}
 
 	// Validacion de Doubles positivos
-	private void validaNumeros(double valor) {
+	private boolean validaNumeros(double valor) {
+		boolean confirmacion = false;
 		if (valor < 0) {
 			throw new NumberFormatException("El valor no puede ser negativo");
+		} else {
+			confirmacion = true;
 		}
+
+		return confirmacion;
 	}
 
 //To String con el orden del archivo csv
