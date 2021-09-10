@@ -18,7 +18,7 @@ public class ComparablePorAtraccionPreferida implements Comparator<Producto> {
 
 		boolean sonPreferidasLasDosAtracciones = o1.tipo == atraccionPreferida && o2.tipo == atraccionPreferida;
 		boolean sonPromosLasDosAtracciones = o1.esPromo() && o2.esPromo();
-		boolean tienenElMismoCosto = Double.compare(o1.costoDeVisita, o2.costoDeVisita) == 0;
+		boolean tienenElMismoCosto = Double.compare(o1.costo, o2.costo) == 0;
 
 		if (sonPreferidasLasDosAtracciones) {
 			if (sonPromosLasDosAtracciones) {
@@ -54,7 +54,7 @@ public class ComparablePorAtraccionPreferida implements Comparator<Producto> {
 		if (tienenElMismoCosto) {
 			return comparadorPorTiempo(o1, o2); // comparo por tiempo
 		} else {
-			return Double.compare(o1.costoDeVisita, o2.costoDeVisita) * -1;// y sino comparo por costo
+			return Double.compare(o1.costo, o2.costo) * -1;// y sino comparo por costo
 		}
 	}
 
