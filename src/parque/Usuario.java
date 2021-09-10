@@ -1,19 +1,18 @@
 package parque;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Usuario {
 	private String nombre;
 	private TipoDeAtraccion preferida;
-	private double dinero, tiempoDisponible;
-
-	// private List<Itinerario> = new ArrayList<Itinerario>();
+	private double dinero, tiempo;
+	private List<Producto> itinerario;
+	
+	// constructor de usuario
 	public Usuario() {
 	}
 
-	public TipoDeAtraccion getAtraccionPreferida() {
-		return preferida;
-	}
-
-	// constructor de usuario
 	public Usuario(String nombre, TipoDeAtraccion preferencia, double dinero, double tiempo) {
 		if (validaNumeros(dinero)) {
 			this.dinero = dinero;
@@ -21,15 +20,18 @@ public class Usuario {
 			this.dinero = 0;
 		}
 		if (validaNumeros(tiempo)) {
-			this.tiempoDisponible = tiempo;
+			this.tiempo = tiempo;
 		} else {
-			this.tiempoDisponible = 0;
+			this.tiempo = 0;
 		}
 
 		this.nombre = nombre;
-
 		this.preferida = preferencia;
+		itinerario = new ArrayList<Producto>();
+	}	
 
+	public TipoDeAtraccion getAtraccionPreferida() {
+		return preferida;
 	}
 
 	// Validacion de Doubles positivos
@@ -40,14 +42,20 @@ public class Usuario {
 		} else {
 			confirmacion = true;
 		}
-
 		return confirmacion;
 	}
+	
+	public void comprarProducto(Producto producto) {
+		if (this.dinero >= producto.getCosto() && this.tiempo >= producto.tiempoNecesario) {
+			this.dinero -= producto.getCosto();
+			this.tiempo -= producto.getTiempoNecesario();
+			this.itinerario.add(producto);
+		}
+	}
 
-//To String con el orden del archivo csv
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", preferida=" + preferida + ", dinero=" + dinero + ", tiempoDisponible="
-				+ tiempoDisponible + "]";
+		return "Usuario [nombre=" + nombre + ", atracción preferida=" + preferida + ", dinero disponible=" + dinero + 
+				", tiempo disponible=" + tiempo + "]";
 	}
 }

@@ -5,7 +5,7 @@ import java.util.List;
 
 public abstract class Promocion extends Producto {
 
-	private List<Atraccion> atraccionesIncluidas;
+	protected List<Atraccion> atraccionesIncluidas;
 
 	public Promocion() {
 		super();
@@ -21,4 +21,7 @@ public abstract class Promocion extends Producto {
 	public boolean esPromo() {
 		return true;
 	}
+	
+
+	
 }

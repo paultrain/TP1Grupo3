@@ -1,22 +1,48 @@
 package parque;
 
-public class Atraccion extends Producto {
+public class Atraccion extends Producto{
+	
+	public boolean ocuparAtraccion;
 
 	public Atraccion() {
 		super();
 	}
 
-	public Atraccion(String nombre, double costoDeVisita,
+	public Atraccion(String nombre, double costo,double tiempoNecesario, int cupoPersonas, TipoDeAtraccion tipo) {
+		super(nombre, costo, tiempoNecesario, cupoPersonas, tipo);
+	}
 
-			double tiempoNecesario, int cupoPersonasPorDia, TipoDeAtraccion tipo) {
-		super(nombre, costoDeVisita, tiempoNecesario, cupoPersonasPorDia, tipo);
+	public boolean quedaCupo() {
+		return this.cupoPersonas>0;
+	}
+	
+	public void ocuparAtraccion() {
+		if (quedaCupo()) {
+			this.cupoPersonas--;
+		}
+	}
+	
+	@Override
+	public boolean esPromo() {
+		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return "Atraccion [nombre=" + nombre + ", costo=" + costo + ", tiempo necesario=" + tiempoNecesario
+				+ ", cupo de Personas=" + cupoPersonas + ", tipo de Atracción=" + tipo + "]";
 	}
 
 	@Override
-	public String toString() {
-		return "Atraccion [nombre=" + nombre + ", costoDeVisita=" + costoDeVisita + ", tiempoNecesario="
-				+ tiempoNecesario + ", CupoPersonasPorDia=" + CupoPersonasPorDia + ", tipo=" + tipo + "]";
+	public double getCosto() {
+		return this.costo;
 	}
+
+	@Override
+	public double getTiempoNecesario() {
+		return this.tiempoNecesario;
+	}
+
 	
 
 }
