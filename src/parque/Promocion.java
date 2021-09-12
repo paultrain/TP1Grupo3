@@ -22,6 +22,9 @@ public abstract class Promocion extends Producto {
 		return true;
 	}
 	
-
+	//@Override
+	//public LinkedList<Atraccion> getAtracciones() {
+	//	return atraccionesIncluidas;
+	//}
 	
 }
