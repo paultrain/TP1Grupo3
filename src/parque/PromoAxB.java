@@ -13,6 +13,7 @@ public class PromoAxB extends Promocion {
 	public PromoAxB(TipoDeAtraccion tipo, String nombre, double costoDeVisita, double tiempoNecesario,
 			int cupoPersonasPorDia, List<Atraccion> atraccionesIncluidas) {
 		super(tipo, nombre, costoDeVisita, tiempoNecesario, cupoPersonasPorDia, atraccionesIncluidas);
+		
 	}
 
 	@Override
@@ -27,6 +28,18 @@ public class PromoAxB extends Promocion {
 			tiempo += atrac.getTiempoNecesario();
 		}
 		return tiempo;
+	}
+	
+	@Override
+	public double calcularDescuento() {
+		Double total = 0.00;
+		Atraccion gratis = atraccionesIncluidas.get(atraccionesIncluidas.size() - 1);
+		for (Atraccion atraccionActual : atraccionesIncluidas) {
+			total += atraccionActual.getCosto();
+		}
+
+		return total - gratis.getCosto();
+
 	}
 
 }
